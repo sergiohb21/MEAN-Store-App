@@ -18,7 +18,7 @@ db.productos.insert([
       "title": "Pantalones cortos",
       "price": 24,
       "description": "Pantalones cortos cómodos para hacer ejercicio",
-      "image": "./assets/imagenes/camiseta_deportiva.webp",
+      "image": "./assets/imagenes/pantalones_cortos.webp",
       "category": 1,
       "creationAt": "2024-02-28T12:00:00.000Z",
       "updatedAt": "2024-02-28T12:00:00.000Z"
