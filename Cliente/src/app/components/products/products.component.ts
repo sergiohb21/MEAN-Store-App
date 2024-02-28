@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnChanges } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnChanges{
   products: Product[] = [];
   categoryId?: number;
 
@@ -23,12 +23,17 @@ export class ProductsComponent {
     private productService: ProductService
   ) { }
 
-  async ngOnInit(): Promise<void> {
-    await this.loadProducts();
+  ngOnInit() {
+    this.loadProducts();
+    this.route.params.subscribe(param => {
+      this.loadProducts();
+    })
   }
-
+  ngOnChanges() {
+    this.loadProducts();
+  }
   async loadProducts(): Promise<void> {
-    const categoryId = +this.route.snapshot.params['categoriaId'];
+    const categoryId = this.route.snapshot.params['categoriaId'];
     
     if (categoryId) {
       this.products = await this.productService.getProductsCategory(categoryId);
