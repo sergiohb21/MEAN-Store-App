@@ -57,8 +57,8 @@ async function addProducto(req, res) {
 
 async function getProducto(req, res) {
   try {
-    const productoId = parseInt(req.params.productoId);
-    const productoLeido = await Producto.findOne({ 'id': productoId });
+    const productoId = req.params.productoId;
+    const productoLeido = await Producto.findOne({ '_id': productoId });
     if (productoLeido) {
       return res.send(productoLeido);
     } else {

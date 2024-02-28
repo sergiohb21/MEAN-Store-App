@@ -20,9 +20,9 @@ export class ProductService {
     }
   }
 
-  async getProduct(id:number): Promise<Product> {
+  async getProduct(_id:number): Promise<Product> {
     try {
-      const response = await fetch(this.apiUrl + id);
+      const response = await fetch(this.apiUrl + _id);
       const product: Product = await response.json();
       return product;
     } catch (error) {

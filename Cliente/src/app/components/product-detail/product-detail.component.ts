@@ -29,7 +29,7 @@ export class ProductDetailComponent {
   ) { }
 
   ngOnInit() {
-    this.productId = parseInt(this.route.snapshot.params['productoId']);
+    this.productId = this.route.snapshot.params['productoId'];
     
     if (this.productId) {
       this.loadProduct(this.productId);
@@ -47,8 +47,9 @@ export class ProductDetailComponent {
           title: this.product.title,
           description: this.product.description,
           price: this.product.price,
-          image: this.product.images[0]
+          image: this.product.image
         };
+        
       }
     } catch (error) {
       console.error('Error al cargar el producto:', error);

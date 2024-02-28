@@ -19,7 +19,7 @@ export class AddProductComponent {
     title: '',
     description: '',
     price: 0,
-    images: [''],
+    image: '',
     category: -1
   };
 

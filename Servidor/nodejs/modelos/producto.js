@@ -6,9 +6,6 @@ const ProductSchema = new Schema({
         type: Schema.ObjectId,
         auto:true
     },
-    id: {
-        type: Number,
-    },
     title:{
         type: String,
         required:true
@@ -20,8 +17,8 @@ const ProductSchema = new Schema({
     description: {
         type:String
     },
-    images: {
-        type: [String] 
+    image: {
+        type: String
     },
     category: {
         type: Number,
