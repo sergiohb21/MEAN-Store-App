@@ -5,21 +5,15 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:2525/productos/';
-  private apiUrl1 = 'https://api.escuelajs.co/api/v1/products';
-
+  private apiUrl   = 'http://localhost:2525/productos/';
+  //private apiUrl = 'https://api.escuelajs.co/api/v1/products';
 
   constructor() { }
 
   async getProducts(): Promise<Product[]> {
     try {
       const response = await fetch(this.apiUrl);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
       const products: Product[] = await response.json();
-
       return products;
     } catch (error) {
       throw error;
@@ -29,12 +23,7 @@ export class ProductService {
   async getProduct(id:number): Promise<Product> {
     try {
       const response = await fetch(this.apiUrl + id);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
       const product: Product = await response.json();
-      
       return product;
     } catch (error) {
       throw error;
@@ -51,11 +40,6 @@ export class ProductService {
         body: JSON.stringify(product)
       });
       
-      console.log("Servicio Angular: ",product);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
 
     } catch (error) {
       throw error;
@@ -65,10 +49,6 @@ export class ProductService {
   async getProductsCategory(category: number): Promise<Product[]> {
     try {
       const response = await fetch(`http://localhost:2525/productos-categoria/${category}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
       const products: Product[] = await response.json();
       return products;
     } catch (error) {
@@ -84,10 +64,6 @@ export class ProductService {
           'Content-Type': 'application/json'
         }
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
     } catch (error) {
       throw error;
     }
@@ -104,7 +80,7 @@ export class ProductService {
       });
   
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        console.log(`HTTP error! Status: ${response.status}`);
       }
     } catch (error) {
       throw error;
