@@ -5,7 +5,6 @@ import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../services/category.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Category } from '../../models/category';
 
 
 @Component({
