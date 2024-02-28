@@ -219,6 +219,7 @@ import {
   platformCore,
   provideZoneChangeDetection,
   provideZonelessChangeDetection,
+  queueStateUpdate,
   readHydrationInfo,
   reflectComponentType,
   registerLocaleData,
@@ -445,8 +446,8 @@ import {
   ɵɵvalidateIframeAttribute,
   ɵɵviewQuery,
   ɵɵviewQuerySignal
-} from "./chunk-YG4BN62F.js";
-import "./chunk-LGU3RXIR.js";
+} from "./chunk-DS35KYXB.js";
+import "./chunk-ISCGBDHS.js";
 import "./chunk-J4B6MK7R.js";
 export {
   ANIMATION_MODULE_TYPE,
@@ -680,6 +681,7 @@ export {
   patchComponentDefWithScope as ɵpatchComponentDefWithScope,
   performanceMarkFeature as ɵperformanceMarkFeature,
   provideZonelessChangeDetection as ɵprovideZonelessChangeDetection,
+  queueStateUpdate as ɵqueueStateUpdate,
   readHydrationInfo as ɵreadHydrationInfo,
   registerLocaleData as ɵregisterLocaleData,
   renderDeferBlockState as ɵrenderDeferBlockState,
