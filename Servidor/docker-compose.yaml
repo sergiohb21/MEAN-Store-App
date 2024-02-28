@@ -20,6 +20,8 @@ services:
       - db_database=store
       - db_username=root
       - db_password=root
+    depends_on:
+      - mongodb
   mongodb:
     container_name: mongodb
     image: mongo:5.0
@@ -32,6 +34,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=root
       - MONGO_INITDB_DATABASE=store
   mongo-express:
+    container_name: mongo-express
     image: mongo-express
     restart: always
     ports:
@@ -42,3 +45,4 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=root
     depends_on:
       - mongodb
+
