@@ -38,7 +38,10 @@ async function getProductosCategoria(req, res) {
 
 async function addProducto(req, res) {
   try {
-    const productoData = JSON.parse(req.body);
+    const productoData = req.body;
+    if (productoData._id) {
+      delete productoData._id;
+    }
     const producto = new Producto(productoData);
     await producto.save();
     return res.status(200).send({

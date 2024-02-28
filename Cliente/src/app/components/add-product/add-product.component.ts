@@ -20,7 +20,7 @@ export class AddProductComponent {
     description: '',
     price: 0,
     images: [''],
-    category: { id: 0, name: '', image: '' }
+    category: -1
   };
 
   categories: any[] = [];
@@ -46,7 +46,7 @@ export class AddProductComponent {
 
   async addProduct(): Promise<void> {
     try {
-      console.log(this.product);
+      console.log("Componente Angular: ", this.product);
       await this.productService.addProduct(this.product);
 
       this.router.navigate(['/productos']);

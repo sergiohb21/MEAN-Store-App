@@ -51,6 +51,8 @@ export class ProductService {
         body: JSON.stringify(product)
       });
       
+      console.log("Servicio Angular: ",product);
+      
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
