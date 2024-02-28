@@ -33,7 +33,7 @@ export class ProductsComponent implements OnChanges{
     this.loadProducts();
   }
   async loadProducts(): Promise<void> {
-    const categoryId = this.route.snapshot.params['categoriaId'];
+    const categoryId = parseInt(this.route.snapshot.params['categoriaId']);
     
     if (categoryId) {
       this.products = await this.productService.getProductsCategory(categoryId);

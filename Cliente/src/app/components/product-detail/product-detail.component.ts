@@ -40,7 +40,7 @@ export class ProductDetailComponent {
     try {
       if (productId) { 
         this.product = await this.productService.getProduct(productId);
-        //this.categoryId = this.product.category.id;
+        this.categoryId = this.product.category;
         // Inicializa formData con los datos del producto
         this.formData = {
           _id: this.product._id,
@@ -60,10 +60,8 @@ export class ProductDetailComponent {
     try {
       if (this.productId) {
         await this.productService.deleteProduct(this.productId);
-        const categoryId = this.categoryId;
         
-        //this.router.navigate(['/productos-categoria', categoryId]);
-        this.router.navigate(['/productos']);
+        this.router.navigate(['/productos-categoria', this.categoryId]);
       }
       this.showDeleteModal = false;
     } catch (error) {

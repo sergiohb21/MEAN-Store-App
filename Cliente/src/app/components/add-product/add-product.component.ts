@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../services/category.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Category } from '../../models/category';
 
 
 @Component({
@@ -46,10 +47,8 @@ export class AddProductComponent {
 
   async addProduct(): Promise<void> {
     try {
-      console.log("Componente Angular: ", this.product);
       await this.productService.addProduct(this.product);
-
-      this.router.navigate(['/productos']);
+      this.router.navigate(['/productos-categoria', this.product.category]);
     } catch (error) {
       console.error('Error añadiendo el producto:', error);
     }

@@ -21,7 +21,7 @@ async function getproductos(req, res) {
 async function getProductosCategoria(req, res) {
   try {
     const categoriaId = parseInt(req.params.categoriaId); // Convertir el id de la categoría a un número
-    const productos = await Producto.find({ 'category.id': categoriaId });
+    const productos = await Producto.find({ 'category': categoriaId });
     if (productos && productos.length > 0) {
       return res.status(200).send(productos);
     } else {
